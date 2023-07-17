@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>Data Binding</h3>
+    <form action="/Student/save2" method="post" th:object="${sv}">
+      <!-- Input field for email -->
+      <input th:field="*{email}" placeholder="Email?" />
+      <span th:errors="*{email}"></span><br>
+      
+      <!-- Input field for fullName -->
+      <input th:field="*{fullName}" placeholder="fullname?" type="text" name="" id="" />
+      <span th:errors="*{fullName}"></span><br>
+      
+      <!-- Input field for marks -->
+      <input th:field="*{marks}" placeholder="marks?" type="text" name="" id="" />
+      <span th:errors="*{marks}"></span><br>
+      
+      <!-- Radio buttons for gender -->
+      <input th:field="*{gender}" type="radio" th:value="true" name="gender" id="" />
+      <input th:field="*{gender}" type="radio" th:value="false" name="gender" id="" />
+      <span th:errors="*{gender}"></span><br>
+      
+      <!-- Select field for country -->
+      <select th:field="*{country}">
+        <option value=""></option>
+        <option value="VN">Việt Nam</option>
+        <option value="US">US</option>
+      </select>
+      <span th:errors="*{country}"></span><br>
+      
+      <hr>
+      <button>Save</button>
+    </form>
+  </body>
+</html>
