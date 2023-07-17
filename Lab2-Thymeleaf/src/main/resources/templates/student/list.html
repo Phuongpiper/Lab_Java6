@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Thymeleaf Flow control attributes</h1>
+	<ul>
+		<li th:each="sv,state:${students}">
+			<a th:href="@{|/student/list?index=${state.index}|}">[[${sv.name}]]</a>
+		</li>
+	</ul>
+	<h1>Student details</h1>
+	<ul th:object="${sv}">
+		<li>
+			<i>Name : <b th:text="*{name}"></b> </i>
+		</li>
+		<li>
+			<i>Mark : <b th:text="*{marks}"></b> </i>
+		</li>
+		<li>
+			<i>Gender : <b th:text="*{gender ? 'Male' : 'Female'}"></b> </i>
+		</li>
+		<li>
+			<i>Contact : <b th:text="*{contact.email}"></b> </i>
+		</li>
+		<li>
+			<i>Subject : </i>
+			<ul> 
+				<li th:each="subject : *{subjects}">
+					<b th:text="${subject}"></b>
+				</li>
+			</ul>
+		</li>
+		
+		<li th:switch="*{#arrays.length(subjects)}">
+			<i>TIME : </i>
+			<b th:case="1">Mới vào</b>
+			<b th:case="2">Đang học</b>
+			<b th:case="*">Sắp ra trường</b>
+		</li>
+		<li th:if="*{marks} > 9">Goden bee</li>
+		
+	</ul>
+</body>
+</html>

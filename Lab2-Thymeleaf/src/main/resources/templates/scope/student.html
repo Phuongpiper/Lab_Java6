@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Scopes &amp; Parameter</title>
+</head>
+<body>
+	<a th:href="@{|student?index=${index - 1}|}">Prev</a>
+	[~[[${index + 1}]]/4~]
+	<a th:href="@{|student?index=${index + 1}|}">Next</a>
+	
+	<ul>
+		<li>Name : [[${student.name}]]</li>
+		<li>Gender : [[${student.gender ? 'Male' : 'Female'}]]</li>
+		<li>Mark : [[${student.marks}]]</li>
+		<li>Result : [[${student.marks > 5 ? 'pass' : 'fali'}]]</li>
+	</ul>
+	
+</body>
+</html>
