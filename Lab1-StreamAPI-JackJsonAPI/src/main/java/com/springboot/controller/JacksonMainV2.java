@@ -36,9 +36,9 @@ public class JacksonMainV2 {
 	}
 
 	private static void demo7() throws JsonProcessingException {
-		Contact contact = new Contact("dangnhpc03033@fpt.edu.vn", "0342532573", null);
+		Contact contact = new Contact("phuongnhpc03087@fpt.edu.vn", "0788925658", null);
 		List<String> subjects = Arrays.asList("IT17301", "SP17301");
-		Student student = new Student("Nguyễn Hải Đăng", false, 6.7, contact, subjects);
+		Student student = new Student("Nguyễn Hồng Phương", false, 6.7, contact, subjects);
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(student);
 		System.out.println(json);
@@ -49,10 +49,10 @@ public class JacksonMainV2 {
 		Map<String, Object> student = new HashMap<>();
 		Map<String, Object> contact = new HashMap<>();
 		List<String> subjects = Arrays.asList("IT17301", "SP17301");
-		contact.put("email", "dangnhpc03033@fpt.edu.vn");
+		contact.put("email", "phuongnhpc03087@fpt.edu.vn");
 		contact.put("phone", "0926546260");
 
-		student.put("name", "Nguyễn Hải Đăng");
+		student.put("name", "Nguyễn Hồng Phương");
 		student.put("marks", 5.6);
 		student.put("gender", true);
 		student.put("contact", contact);
@@ -65,12 +65,12 @@ public class JacksonMainV2 {
 	private static void demo5() throws IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode student = mapper.createObjectNode();
-		student.put("name", "Nguyễn Hải Đăng");
+		student.put("name", "Nguyễn Hồng Phương");
 		student.put("marks", 5.6);
 		student.put("gender", true);
 		ObjectNode contact = student.putObject("contact");
-		contact.put("email", "dangnhpc03033@fpt.edu.vn");
-		contact.put("phone", "0342532576");
+		contact.put("email", "phuongnhpc03087@fpt.edu.vn");
+		contact.put("phone", "078892658");
 		ArrayNode subjects = student.putArray("subjects");
 		subjects.add("IT17301");
 		subjects.add("SP17301");
