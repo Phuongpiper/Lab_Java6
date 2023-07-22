@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  </head>
+  <body ng-app="myApp" ng-controller="myCtrl">
+    <h2>RESTful consumer - AngularJS</h2>
+    <div>
+      <input
+        type="text"
+        ng-model="form.Email"
+        placeholder="Email"
+        name=""
+        id=""
+      />
+      <input
+        type="text"
+        ng-model="form.fullName"
+        placeholder="FullName"
+        name=""
+        id=""
+      />
+      <input
+        type="text"
+        ng-model="form.marks"
+        placeholder="Marks"
+        name=""
+        id=""
+      />
+      <input
+        type="radio"
+        ng-model="form.gender"
+        ng-value="true"
+        name="gender"
+        id=""
+      />Male
+      <input
+        type="radio"
+        ng-model="form.gender"
+        ng-value="false"
+        name="gender"
+        id=""
+      />Female
+      <select ng-model="form.Country">
+        <option value="VN">Việt Nam</option>
+        <option value="US">US</option>
+      </select>
+      <hr />
+      <button ng-click="create()">Create</button>
+      <button ng-click="update()">Update</button>
+      <button ng-click="delete(key)">Delete</button>
+      <button ng-click="reset()">Reset</button>
+    </div>
+    <p></p>
+    <table style="width: 100%; border: 1">
+      <tr>
+        <th>Email</th>
+        <th>Fullname</th>
+        <th>Mark</th>
+        <th>Gender</th>
+        <th>Country</th>
+        <th>Action</th>
+      </tr>
+      <tr ng-repeat="(key, stu) in items">
+        <td>{{stu.Email}}</td>
+        <td>{{stu.fullName}}</td>
+        <td>{{stu.marks}}</td>
+        <td>{{stu.gender ? 'Male' : 'Female'}}</td>
+        <td>{{stu.country}}</td>
+        <td>
+          <button ng-click="edit(key)">Edit</button>
+          <button ng-click="delete(key)">Delete</button>
+        </td>
+      </tr>
+    </table>
+    <script src="demo-ctrl.js"></script>
+  </body>
+</html>
